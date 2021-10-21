@@ -1,0 +1,27 @@
+---
+layout: default
+title: La Economía P2P
+---
+
+<div class="container-fluid p-5 text-center text-light" style="background-color: #067355">
+  <h1>La Economía P2P</h1>
+  <p>Un pódcast sobre Bitcoin Cash, intercambios voluntarios y el futuro descentralizado</p>
+</div>
+
+<div class="container p-3 my-3">
+
+  <h1 class="text-center">Últimos episodios</h1>
+
+  {% for episodio in site.data.episodios %}
+
+  <div class="card my-3 bg-dark">
+    <h5 class="card-header">{{ episodio.titulo }}</h5>
+    <div class="card-body">
+      {{ episodio.descripcion }}
+    </div>
+    <div class="card-footer">
+      Escuchanos acá: {{ episodio.enlace }}
+    </div>
+  </div>
+
+  {% endfor %}
