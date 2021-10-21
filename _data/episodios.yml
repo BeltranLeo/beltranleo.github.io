@@ -1,7 +1,4 @@
-- titulo: "Episodio #1"
-  enlace: example.com
-  descripcion: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-- titulo: "Episodio #2"
-  enlace: example.com
-  descripcion: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+- titulo: "Noticias - Semana #42"
+  descripcion: ¡Saludos a todos! Con esta primera sección de noticias abrimos el pódcast La Economía P2P. Desde un nuevo «bridge» para SmartBCH hasta una campaña para tener más ganas de seguir utilizando Bitcoin Cash como moneda, este breve comentario semanal nos introduce a lo novedoso de la economía bitcoinera.
+  soundcloud: https://soundcloud.com/laeconomiap2p/noticias-semana-42
+  telegram: https://t.me/LaEconomiaP2P/3

@@ -18,15 +18,16 @@ title: La Economía P2P
 
   {% for episodio in site.data.episodios %}
 
-  <div class="row">
-    <div class="col">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-lg-9">
       <div class="card my-3 bg-dark">
-        <h5 class="card-header">{{ episodio.titulo }}</h5>
+        <h4 class="card-header">{{ episodio.titulo }}</h4>
         <div class="card-body">
           {{ episodio.descripcion }}
         </div>
-        <div class="card-footer">
-          Escuchanos acá: {{ episodio.enlace }}
+        <div class="card-footer text-center">
+          <a href="{{ episodio.soundcloud }}" target="_blank" rel="noopener noreferrer"><button type="button" class="btn btn-secondary"><i class="fab fa-soundcloud"></i> SoundCloud</button></a>
+          <a href="{{ episodio.telegram }}" target="_blank" rel="noopener noreferrer"><button type="button" class="btn btn-secondary"><i class="fab fa-telegram"></i> Telegram</button></a>
         </div>
       </div>
     </div>
