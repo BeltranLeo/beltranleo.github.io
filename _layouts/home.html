@@ -2,7 +2,14 @@
 layout: default
 ---
 
-<div class="container-fluid p-5 bg-primary text-white text-center">
+<div class="container-fluid p-5 text-center" style="background-color: #0AC18E">
   <h1>La Economía P2P</h1>
-  <p>Un lugar para aprender sobre Bitcoin Cash</p>
+  <p>Un pódcast sobre Bitcoin Cash, intercambios voluntarios y el futuro descentralizado</p>
 </div>
+
+<h1>Últimos episodios</h1>
+
+{% for item in site.data.pocast %}
+  <h2>{{ item.name }}</h2>
+  <p>{{ item.link }}</p>
+{% endfor %}
