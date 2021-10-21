@@ -10,18 +10,28 @@ title: La Economía P2P
 
 <div class="container p-3 my-3">
 
-  <h1 class="text-center">Últimos episodios</h1>
+  <div class="row">
+    <div class="col">
+      <h1 class="text-center">Últimos episodios</h1>
+    </div>
+  </div>
 
   {% for episodio in site.data.episodios %}
 
-  <div class="card my-3 bg-dark">
-    <h5 class="card-header">{{ episodio.titulo }}</h5>
-    <div class="card-body">
-      {{ episodio.descripcion }}
-    </div>
-    <div class="card-footer">
-      Escuchanos acá: {{ episodio.enlace }}
+  <div class="row">
+    <div class="col">
+      <div class="card my-3 bg-dark">
+        <h5 class="card-header">{{ episodio.titulo }}</h5>
+        <div class="card-body">
+          {{ episodio.descripcion }}
+        </div>
+        <div class="card-footer">
+          Escuchanos acá: {{ episodio.enlace }}
+        </div>
+      </div>
     </div>
   </div>
 
   {% endfor %}
+
+</div>
