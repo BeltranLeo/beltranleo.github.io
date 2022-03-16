@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+
+<html lang="es-AR" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      var baseurl = "https://markets.api.bitcoin.com/rates?c=BCH";
+      function loadEu() {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", baseurl, true);
+        xmlhttp.onreadystatechange = function () {
+          if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            var persons = JSON.parse(xmlhttp.responseText);
+            persons.filter((word) => {
+              if (word.code == "USD") {
+                var persons = word.rate.toFixed(2);
+                var main = "";
+                main = "1 BCH = " + persons + " USD";
+                var tbl = main;
+                document.getElementById("bch").innerHTML = tbl;
+                loadDD(persons);
+              }
+            });
+          }
+        };
+        xmlhttp.send();
+      }
+      function loadDD(persons) {
+        var baseurl2 = "https://api.yadio.io/rate/ARS";
+        var xmlhttp2 = new XMLHttpRequest();
+        xmlhttp2.open("GET", baseurl2, true);
+        xmlhttp2.onreadystatechange = function () {
+          if (xmlhttp2.readyState === 4 && xmlhttp2.status === 200) {
+            var arg = JSON.parse(xmlhttp2.responseText);
+            console.log(arg.usd);
+            var usdArg = arg.usd;
+            var totalBtcArgCalculate = persons * usdArg;
+            var totalBtcArg = totalBtcArgCalculate.toFixed(2);
+            main = "1 BCH = " + totalBtcArg + " ARS";
+            var tbl = main;
+            document.getElementById("personinfo").innerHTML = tbl;
+          }
+        };
+        xmlhttp2.send();
+      }
+      window.onload = function () {
+        loadEu();
+      };
+    </script>
+    <title>Bitcoin Cash Argentina</title>
+  </head>
+  <body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light border">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="./assets/images/icono.png" alt="" width="129" height="50" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" href="#por-que-bch">Por qué BCH</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#usar-bch"
+            >Usá Bitcoin Cash</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#mapa">Mapa</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#sobre-nosotros">Sobre nosotros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="bch"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="personinfo"></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+ <div class="fixed-bottom self-align-right p-3">
+  <a
+    href="https://wa.me/5491164883409/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img src="/assets/images/WhatsApp.png" width="60px" alt="" />
+  </a>
+</div>
+
+<div
+  class="container-fluid"
+  style="
+    background-image: linear-gradient(
+      to bottom right,
+      #f8fdff,
+      #0ac18e,
+      #f8fdff
+    );
+  "
+>
+  <div class="p-5">
+    <div class="container py-5">
+      <h1 class="display-5 fw-bold">¡Empezá a usar Bitcoin Cash hoy!</h1>
+      <p class="col-md-8 fs-4">
+        Recibí y enviá pagos en la criptomoneda resistente a la inflación que
+        tiene tarifas de transferencia más económicas y tiempos de transferencia
+        más rápidos.
+      </p>
+      <a href="#usar-bch"
+        ><button type="button" class="btn btn-success">
+          Usar Bitcoin Cash
+        </button></a
+      >
+      <a
+        href="https://wallet.bitcoin.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><button type="button" class="btn btn-success">
+          Descargar billetera
+        </button></a
+      >
+    </div>
+  </div>
+</div>
+
+<div
+  id="por-que-bch"
+  class="container-fluid text-center p-5 bg-dark text-light"
+>
+  <h1>Por qué usar Bitcoin Cash</h1>
+  <p class="fs-4">
+    Bitcoin Cash es dinero en efectivo digital sin intermediarios. <br />
+    Ninguna entidad centralizada controla su destino y permite a cada usuario
+    enviar, recibir y custodiar sus fondos de forma segura, privada y sencilla.
+  </p>
+
+  <p class="fs-5">
+    — Control sobre el dinero, sin intermediarios.<br />
+    — Enviar y recibir pagos desde cualquier parte del mundo.<br />
+    — Pagos instantáneos y a un costo despreciable.<br />
+    — Emisión fija, predecible y limitada.<br />
+    — Alto nivel de privacidad.<br />
+  </p>
+
+  <a
+    href="https://whybitcoincash.com/es"
+    target="_blank"
+    rel="noopener noreferrer"
+    ><button type="button" class="btn btn-success">
+      Conocer sobre Bitcoin Cash
+    </button></a
+  >
+  <a
+    href="https://wa.me/5491164883409/"
+    target="_blank"
+    rel="noopener noreferrer"
+    ><button type="button" class="btn btn-success">
+      Soporte por WhatsApp
+    </button></a
+  >
+</div>
+
+<div id="usar-bch" class="container my-4">
+  <h1 class="text-center">Cómo usar Bitcoin Cash</h1>
+  <div class="row">
+    <div class="col p-5 m-3 bg-light border rounded-3">
+      <img
+        src="/assets/images/user.jpg"
+        class="img-fluid rounded mx-auto d-block"
+        alt="..."
+      />
+      <h2 class="mt-4">Usuarios</h2>
+      <p class="fs-5">
+        Aprendé lo que necesitás saber para usar Bitcoin Cash.
+      </p>
+      <a href="#"
+        ><button type="button" class="btn btn-success">
+          Ir al tutorial
+        </button></a
+      >
+    </div>
+    <div class="col p-5 m-3 bg-light border rounded-3">
+      <img
+        src="/assets/images/shop.jpg"
+        class="img-fluid rounded mx-auto d-block"
+        alt="..."
+      />
+      <h2 class="mt-4">Comercios</h2>
+      <p class="fs-5">
+        Te enseñamos cómo aceptar Bitcoin Cash en tu negocio.
+      </p>
+      <a href="#"
+        ><button type="button" class="btn btn-success">Conocé más</button></a
+      >
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSc7umVo3A94hkcTMxriRiCNPYJ2MRL0crns5sBaQnHjoTWrSg/viewform"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><button type="button" class="btn btn-success">
+          Registrá tu negocio
+        </button></a
+      >
+    </div>
+  </div>
+</div>
+
+<div id="mapa" class="container-fluid text-center pt-3 pb-3 bg-dark text-light">
+  <h1>Mapa de comercios</h1>
+  <p class="fs-4">
+    Encontrá todos los lugares que ya aceptan Bitcoin Cash cerca de tu casa
+  </p>
+
+  <iframe
+    src="https://map.bitcoin.com/?lat=-34&lng=-58&zoom=5"
+    width="85%"
+    height="600"
+  ></iframe>
+
+  <hr />
+
+  <h2 class="py-2">Directorio</h2>
+  <p class="fs-4 py-2">
+    Buscá los locales indexados por categoría
+  </p>
+  <a
+    href="https://bitcoincashargentina.com/directorio/"
+    target="_blank"
+    rel="noopener noreferrer"
+    target="_blank"
+    rel="noopener noreferrer"
+    ><button type="button" class="btn btn-success">
+      Ir al directorio
+    </button></a
+  >
+</div>
+
+<div
+  id="sobre-nosotros"
+  class="shadow my-5 p-3 py-5 container bg-light text-center"
+>
+  <h1 class="mb-4">Quiénes somos</h1>
+  <div class="container fs-5">
+    <p>
+      Somos un grupo de personas que ha encontrado en Bitcoin Cash (BCH) la
+      solución a muchos de los problemas propios del dinero tal como lo
+      conocemos, y es por ello que estamos dedicados a promover su adopción en
+      Argentina como moneda de uso diario.
+    </p>
+    <p>
+      En nuestra web podrás obtener información y soporte online para operar con
+      BCH en forma segura, personalmente o en tu comercio / empresa.
+    </p>
+    <p>
+      Pretendemos ser la página web líder en Argentina sobre Bitcoin Cash, y
+      referente para consultas sobre cotización de la moneda en tiempo real.
+    </p>
+  </div>
+</div>
+
+<div id="noticias" class="p-3 py-5 album bg-light">
+  <h1 class="mb-4 text-center">Noticias</h1>
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      
+      <div class="col">
+        <div class="card shadow" style="">
+          <div class="card-body">
+            <h5 class="card-title">Bitcoiners: la élite más decepcionante</h5>
+            <p class="card-text">
+              En lugar de liberarse y liberar a otros, la mayoría de los early adopters eligieron ser esclavos privilegiados.
+            </p>
+            <a
+              href="https://elbitcoin.org/bitcoiners-la-elite-mas-decepcionante/"
+              target="_blank"
+              rel="noopener noreferrer"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+              >Seguir leyendo</a
+            >
+          </div>
+        </div>
+      </div>
+      
+      <div class="col">
+        <div class="card shadow" style="">
+          <div class="card-body">
+            <h5 class="card-title">La trampa del todo o nada: lo posible vs lo imaginario</h5>
+            <p class="card-text">
+              Los enemigos de lo suficientemente bueno prefieren lo perfecto, aunque lo perfecto sea imaginario… y aunque lo suficientemente bueno sea mil veces mejor que lo malo conocido.
+            </p>
+            <a
+              href="https://elbitcoin.org/lo-posible-vs-lo-imaginario-defendiendo-0-conf/"
+              target="_blank"
+              rel="noopener noreferrer"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+              >Seguir leyendo</a
+            >
+          </div>
+        </div>
+      </div>
+      
+      <div class="col">
+        <div class="card shadow" style="">
+          <div class="card-body">
+            <h5 class="card-title">Censura económica en Canadá: ¡Necesitamos Efectivo P2P</h5>
+            <p class="card-text">
+              Ahora más que nunca, queda claro por qué se ha hecho un esfuerzo tan descomunal para demorar la adopción del efectivo p2p escalable, funcional y resistente a la censura.
+            </p>
+            <a
+              href="https://elbitcoin.org/censura-economica-en-canada-necesitamos-efectivo-p2p/"
+              target="_blank"
+              rel="noopener noreferrer"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+              >Seguir leyendo</a
+            >
+          </div>
+        </div>
+      </div>
+      
+      <div class="col">
+        <div class="card shadow" style="">
+          <div class="card-body">
+            <h5 class="card-title">Trezor y las «pruebas de viaje» (comienza el asedio a las criptos)</h5>
+            <p class="card-text">
+              Con la implementación de AOPP (protocolo de prueba de propiedad de direcciones), el juego del gato y el ratón entra en una nueva etapa.
+            </p>
+            <a
+              href="https://elbitcoin.org/trezor-y-las-pruebas-de-viaje-comienza-el-asedio-a-las-criptos/"
+              target="_blank"
+              rel="noopener noreferrer"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+              >Seguir leyendo</a
+            >
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="my-3 p-3 container-fluid bg-light">
+  <h1 class="text-center">Partners</h1>
+  <div class="d-flex flex-row p-5">
+    <img
+      src="/assets/images/logo-bitcoincash-.png"
+      class="mx-auto d-block"
+      height="60px"
+    />
+    <img
+      src="/assets/images/BCH-logo.png"
+      class="mx-auto d-block"
+      height="60px"
+    />
+    <img
+      src="/assets/images/logo-bitcoin.png"
+      class="mx-auto d-block"
+      height="60px"
+    />
+    <img
+      src="/assets/images/logo-bitcoincash.png"
+      class="mx-auto d-block"
+      height="60px"
+    />
+    <img
+      src="/assets/images/logo-elbitcoin.png"
+      class="mx-auto d-block"
+      height="60px"
+    />
+    <img
+      src="/assets/images/full-logo-black.png"
+      class="mx-auto d-block"
+      height="60px"
+    />
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row text-center">
+    <div class="col-md-4 p-5 bg-dark text-white">
+      <h2>Mantenete informado</h2>
+      <p>
+        Suscribite a nuestro newsletter, para recibir las novedades de la
+        comunidad local de BCH Argentina.
+      </p>
+    </div>
+    <div class="col-md-4 p-5 bg-light">
+      <h2>Donaciones</h2>
+      <p>
+        Doná para contribuir con nuestra página, para que podamos seguir
+        fomentando la comunidad local de Bitcoin Cash Argentina.
+      </p>
+      <a href="https://tipb.ch/BCHArgentina"
+        ><button type="button" class="btn btn-success">
+          Donar
+        </button></a
+      >
+    </div>
+    <div class="col-md-4 p-5 bg-dark text-white">
+      <h2>Transferencias internacionales</h2>
+      <p>
+        En promedio, los bancos cobran el 6,8% del dinero que envías a tu hogar.
+        Bitcoin Cash es mucho más barato y más rápido. Usalo para enviar dinero
+        sin fronteras.
+      </p>
+    </div>
+  </div>
+</div>
+
+  </body>
+</html>
